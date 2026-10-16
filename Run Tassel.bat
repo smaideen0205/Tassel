@@ -1,0 +1,6 @@
+@echo off
+cd /d "%~dp0"
+echo Installing (first time only, takes a minute)...
+call npm install
+echo Starting Tassel...
+call npm start

@@ -1,0 +1,42 @@
+{
+  "name": "tassel",
+  "productName": "Tassel",
+  "version": "1.1.0",
+  "description": "Little charms that swing on your desktop.",
+  "main": "src/main.js",
+  "license": "MIT",
+  "author": "M",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "app.tassel.desktop",
+    "productName": "Tassel",
+    "files": ["src/**/*", "assets/**/*"],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "icon": "assets/icon.png",
+      "extendInfo": { "LSUIElement": true }
+    },
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }, { "target": "portable", "arch": ["x64"] }],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Tassel"
+    },
+    "portable": {
+      "artifactName": "Tassel-Portable-${version}.exe"
+    }
+  }
+}
